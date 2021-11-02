@@ -1,0 +1,38 @@
+from tkinter import *
+from datetime import datetime, timedelta 
+
+window = Tk()
+
+window.title("Tonys Pizzas Company")
+window.geometry("700x600")
+window.configure(bg='#a30711')
+
+Delivery = 3
+Pickup = 0 
+Regular = 8.50
+Gourmet = 13.50
+Invalid = ""
+RegularPizzas = ["Pepperoni","Pepperoni","Hawaiian" ,"Meat Lovers","Veggie Lovers","Ham & Cheese","Beef & Onion","Cheesy Garlic"] 
+GourmetPizzas = ["Cicken Deluxe","Super Supreme","Magherita","New Yorker","Mega Meat Lovers"]
+
+myLabeltitle = Label(window, text = "Tonys Pizza Company:", fg ='white', bg = '#a30711',font = "Comic 22")
+myLabelsubtitle = Label(window, text = "Order Service:", fg ='white', bg = '#a30711', font = "Comic 22")
+myLabelName = Label(window, text = "Enter Name:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelShipping= Label(window, text = "Delivery or Pick up:, fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelAddress = Label(window, text = "Address:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPhoneNum = Label(window, text = "Phone Number:", fg ='white', bg = '#a30711', font = "Comic 18")
+
+myLabelPizzaNum = Label(window, text = "Number of Pizzas:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza1
+
+myLabeltitle.place(x = 5, y = 10,)
+myLabelsubtitle.place(x = 5, y = 40,)
+myLabelName.place(x = 5, y = 100)
+myLabelShipping.place(x = 5, y = 130)
+myLabelPhoneNum.place(x = 5, y = 160)
+
+myLabelPizzaNum.place()
+
+
+window.mainloop()
+
