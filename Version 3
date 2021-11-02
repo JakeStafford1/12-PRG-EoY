@@ -1,0 +1,186 @@
+from tkinter import *
+from datetime import datetime, timedelta 
+
+window = Tk()
+
+window.title("Tonys Pizzas Company")
+window.geometry("800x600")
+window.configure(bg='#a30711')
+
+Delivery = 3
+Pickup = 0 
+Regular = 8.50
+Gourmet = 13.50
+Invalid = ""
+RegularPizzas = ["Pepperoni","Hawaiian" ,"Meat Lovers","Veggie Lovers","Ham & Cheese","Beef & Onion","Cheesy Garlic"] 
+GourmetPizzas = ["Cicken Deluxe","Super Supreme","Magherita","New Yorker","Mega Meat Lovers"]
+
+myLabeltitle = Label(window, text = "Tonys Pizza Company:", fg ='white', bg = '#a30711',font = "Comic 22")
+myLabelsubtitle = Label(window, text = "Ordering Service:", fg ='white', bg = '#a30711', font = "Comic 22")
+myLabelName = Label(window, text = "Enter Name:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelShipping= Label(window, text = "Delivery or Pick up:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelAddress = Label(window, text = "Address:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPhoneNum = Label(window, text = "Phone Number:", fg ='white', bg = '#a30711', font = "Comic 18")
+
+myLabelPizzaNum = Label(window, text = "Number of Pizzas:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza1 = Label(window, text = "Pizza 1:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza2 = Label(window, text = "Pizza 2:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza3 = Label(window, text = "Pizza 3:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza4 = Label(window, text = "Pizza 4:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza5 = Label(window, text = "Pizza 5:",fg ='white', bg = '#a30711', font = "Comic 18")
+
+myLabeltitle.place(x = 5, y = 3)
+myLabelsubtitle.place(x = 5, y = 40,)
+myLabelName.place(x = 5, y = 100)
+myLabelShipping.place(x = 5, y = 130)
+myLabelAddress.place(x = 5, y = 160)
+myLabelPhoneNum.place(x = 5, y = 190)
+
+myLabelPizzaNum.place(x = 5, y =230)
+myLabelPizza1.place(x = 5, y = 270)
+myLabelPizza2.place(x = 5, y = 300)
+myLabelPizza3.place(x = 5, y = 330)
+myLabelPizza4.place(x = 5, y = 360)
+myLabelPizza5.place(x = 5, y = 390)
+
+Namebox = Entry(window, width = 30, borderwidth =1.5, font = "Comic 12")
+Addressbox = Entry(window, width = 30, borderwidth =1.5, font = "Comic 12")
+PhoneNumbox = Entry(window, width = 30, borderwidth = 1.5, font = "Comic 12")
+
+
+Namebox.place(x = 215, y = 105, height = 24)
+Addressbox.place(x = 215, y = 165, height = 24)
+PhoneNumbox.place(x = 215, y = 195, height = 24)
+
+clicked = StringVar()
+clicked.set("Click")
+ShippingBox = OptionMenu(window, clicked, "Delivery", "Pick Up")
+ShippingBox.place( x = 215, y = 135, width = 277, height = 24)
+ShippingBox.config(font= "Comic 12")
+
+clicked2 = StringVar()
+clicked2.set(RegularPizzas and GourmetPizzas[0]) #DEVLOPMENT AS I ADDED THIS AND DIDNT GET IT 100% ALSO FIGURE OUT HOW TO MAKE IT SAY PIZZA MENU WHEN U CLICK NOT CHICKEN DELUXE
+Pizza1Box = OptionMenu(window, clicked2, *RegularPizzas,*GourmetPizzas)
+Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+Pizza1Box.config(font= "Comic 12")
+
+
+clicked3 = StringVar()
+clicked3.set(RegularPizzas and GourmetPizzas[0])
+Pizza2Box = OptionMenu(window, clicked3, *RegularPizzas,*GourmetPizzas)
+Pizza2Box.place( x = 215, y = 305, width = 277, height = 24)
+Pizza2Box.config(font= "Comic 12")
+
+clicked4 = StringVar()
+clicked4.set(RegularPizzas and GourmetPizzas[0])
+Pizza3Box = OptionMenu(window, clicked4, *RegularPizzas,*GourmetPizzas)
+Pizza3Box.place( x = 215, y = 335, width = 277, height = 24)
+Pizza3Box.config(font= "Comic 12")
+
+clicked5 = StringVar()
+clicked5.set(RegularPizzas and GourmetPizzas[0])
+Pizza4Box = OptionMenu(window, clicked5, *RegularPizzas,*GourmetPizzas)
+Pizza4Box.place( x = 215, y = 365, width = 277, height = 24)
+Pizza4Box.config(font= "Comic 12")
+
+clicked6 = StringVar()
+clicked6.set(RegularPizzas and GourmetPizzas[0])
+Pizza5Box = OptionMenu(window, clicked6, *RegularPizzas,*GourmetPizzas)
+Pizza5Box.place( x = 215, y = 395, width = 277, height = 24)
+Pizza5Box.config(font= "Comic 12")
+
+def One():
+    return
+def Two():
+    return
+def Three():
+    return
+def Four():
+    return
+def Five():
+    return
+
+Pizza1Button = Button(window, text="1", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = One)
+Pizza1Button.place(x = 215, y = 225)
+Pizza2Button = Button(window, text="2", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Two)
+Pizza2Button.place(x = 275, y = 225)
+Pizza3Button = Button(window, text="3", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Three)
+Pizza3Button.place(x = 335, y = 225)
+Pizza4Button = Button(window, text="4", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Four)
+Pizza4Button.place(x = 395, y = 225)
+Pizza5Button = Button(window, text="5", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Five)
+Pizza5Button.place(x = 455, y = 225)
+
+def Order():
+    
+    window2 = Toplevel(window)
+    window2.geometry("800x600")
+    window2.configure(bg='#a30711')
+    window2.title("Tonys Pizza Company")
+
+    myLabeltitle = Label(window2, text = "Tonys Pizza Company", fg ='white', bg = '#a30711',font = "Comic 22")
+    myLabelsubtitle = Label(window2, text = "Ordering Service", fg ='white', bg = '#a30711', font = "Comic 22")
+    myLabelDate = Label(window2, text = "Date:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelName2 = Label(window2, text = "Customer Name:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelAddress2 = Label(window2, text = "Address:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPhoneNum2 = Label(window2, text = "Phone Number:", fg ='white', bg = '#a30711', font = "Comic 18")
+
+    myLabelOrderPizza = Label(window2, text = "Ordered Pizzas", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPricePer = Label(window2, text = "Price Per Pizza", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelAmount = Label(window2, text = "Amount", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPizza11 = Label(window2, text = "Pizza 1:", fg ='white', bg = '#a30711', font = "Comic 18")#CHANGE THIS TO THE INPUTED PIZZA NAMES
+    myLabelPizza21 = Label(window2, text = "Pizza 2:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza31 = Label(window2, text = "Pizza 3:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza41 = Label(window2, text = "Pizza 4:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza51 = Label(window2, text = "Pizza 5:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelTotal = Label(window2, text = "Total Price (Inc Delivery):", fg ='white', bg = '#a30711', font = "Comic 18")
+
+    myLabeltitle.place(x = 225, y = 3)
+    myLabelsubtitle.place(x = 250, y = 40,)
+    myLabelDate.place(x = 5, y = 100)
+    myLabelName2.place(x = 5, y =130)
+    myLabelAddress2.place(x =5, y = 160)
+    myLabelPhoneNum2.place(x =5, y = 190)
+
+    myLabelOrderPizza.place(x = 5, y = 220)
+    myLabelPricePer.place(x = 250, y = 220)
+    myLabelAmount.place(x = 495, y = 220)
+    myLabelPizza11.place(x = 5, y = 250)
+    myLabelPizza21.place(x = 5, y = 280)
+    myLabelPizza31.place(x = 5, y = 310)
+    myLabelPizza41.place(x = 5, y = 340)
+    myLabelPizza51.place(x = 5, y = 370)
+    myLabelTotal.place(x = 5, y = 400)
+
+    invDate = datetime.now()
+    IDate = Label(window2,text = invDate.strftime("%d/%m/%y"), fg = 'white', bg = '#a30711', font = "Comic 18")
+    IDate.place(x = 215, y =100)
+
+    Exit2 = Button(window2, text="Exit",padx = 35, pady = 10, command = window.quit)
+    Exit2.place(x = 350, y = 440, width = 250, height = 60)
+    Exit2.config(font= "Comic 18")
+
+    def AnotherOrder():
+        window2.destroy()
+
+    AnotherOrderButton = Button(window2, text="Accept Another Order", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = AnotherOrder)
+    AnotherOrderButton.place(x = 15, y = 440, width = 250, height = 60)
+
+
+def Clear():
+    Namebox.delete(0,END)
+    Addressbox.delete(0, END)
+    PhoneNumbox.delete(0, END)
+  
+OrderButton = Button(window, text="Order", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = Order)
+OrderButton.place(x = 15, y = 440, width = 218, height = 60)
+
+Exit = Button(window, text="Exit",padx = 35, pady = 10, command = window.quit)
+Exit.place(x = 255, y = 440, width = 218, height = 60)
+Exit.config(font= "Comic 18")
+
+ClearScreenbutton = Button(window, text="Clear Screen", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = Clear)
+ClearScreenbutton.place(x = 495, y = 440, width = 218, height = 60)
+
+
+window.mainloop()
