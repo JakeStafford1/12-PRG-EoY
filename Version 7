@@ -1,0 +1,343 @@
+from tkinter import *
+from datetime import datetime, timedelta 
+
+window = Tk()
+
+window.title("Tonys Pizzas Company")
+window.geometry("800x600")
+window.configure(bg='#a30711')
+
+Delivery = 3
+Pickup = 0 
+Regular = 8.50
+Gourmet = 13.50
+Invalid = ""
+RegularPizzas = ["1. Pepperoni","2. Hawaiian" ,"3. Meat Lovers","4. Veggie Lovers","5. Ham & Cheese","6. Beef & Onion","7. Cheesy Garlic"] 
+GourmetPizzas = ["8. Cicken Deluxe","9. Super Supreme","10. Magherita","11. New Yorker","12. Mega Meat Lovers"]
+
+myLabeltitle = Label(window, text = "Tonys Pizza Company:", fg ='white', bg = '#a30711',font = "Comic 22")
+myLabelsubtitle = Label(window, text = "Ordering Service:", fg ='white', bg = '#a30711', font = "Comic 22")
+myLabelName = Label(window, text = "Enter Name:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelShipping= Label(window, text = "Delivery or Pick up:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelAddress = Label(window, text = "Address:", fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPhoneNum = Label(window, text = "Phone Number:", fg ='white', bg = '#a30711', font = "Comic 18")
+
+myLabelPizzaNum = Label(window, text = "Number of Pizzas:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza1 = Label(window, text = "Pizza 1:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza2 = Label(window, text = "Pizza 2:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza3 = Label(window, text = "Pizza 3:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza4 = Label(window, text = "Pizza 4:",fg ='white', bg = '#a30711', font = "Comic 18")
+myLabelPizza5 = Label(window, text = "Pizza 5:",fg ='white', bg = '#a30711', font = "Comic 18")
+
+myLabeltitle.place(x = 5, y = 3)
+myLabelsubtitle.place(x = 5, y = 40,)
+myLabelName.place(x = 5, y = 100)
+myLabelShipping.place(x = 5, y = 130)
+myLabelAddress.place(x = 5, y = 160)
+myLabelPhoneNum.place(x = 5, y = 190)
+
+myLabelPizzaNum.place(x = 5, y =230)
+myLabelPizza1.place(x = 5, y = 270)
+myLabelPizza2.place(x = 5, y = 300)
+myLabelPizza3.place(x = 5, y = 330)
+myLabelPizza4.place(x = 5, y = 360)
+myLabelPizza5.place(x = 5, y = 390)
+
+InvalidWarming = Label(window, fg ='white',bg = '#a30711', font = "Comic 18") #Spelling incorrect
+InvalidWarming.place(x = 15, y =550)
+
+Namebox = Entry(window, width = 30, borderwidth =1.5, font = "Comic 12")
+Addressbox = Entry(window, width = 30, borderwidth =1.5, font = "Comic 12")
+PhoneNumbox = Entry(window, width = 30, borderwidth = 1.5, font = "Comic 12")
+
+Namebox.place(x = 215, y = 105, height = 24)
+Addressbox.place(x = 215, y = 165, height = 24)
+PhoneNumbox.place(x = 215, y = 195, height = 24)
+
+clicked = StringVar()
+clicked.set("Click")
+ShippingBox = OptionMenu(window, clicked, "Delivery", "Pick Up")
+ShippingBox.place( x = 215, y = 135, width = 277, height = 24)
+ShippingBox.config(font= "Comic 12")
+
+clicked2 = StringVar()
+#clicked2.set(RegularPizzas and GourmetPizzas[0]) #DEVLOPMENT AS I ADDED THIS AND DIDNT GET IT 100% ALSO FIGURE OUT HOW TO MAKE IT SAY PIZZA MENU WHEN U CLICK NOT CHICKEN DELUXE
+clicked2.set("Pizza Menu")                         ## Might be able to combind trhese two .sets
+Pizza1Box = OptionMenu(window, clicked2, *RegularPizzas,*GourmetPizzas)
+Pizza1Box.config(font= "Comic 12")
+
+clicked3 = StringVar()
+#clicked3.set(RegularPizzas and GourmetPizzas[0])
+clicked3.set("Pizza Menu")
+Pizza2Box = OptionMenu(window, clicked3, *RegularPizzas,*GourmetPizzas)
+Pizza2Box.config(font= "Comic 12")
+
+clicked4 = StringVar()
+#clicked4.set(RegularPizzas and GourmetPizzas[0])
+clicked4.set("Pizza Menu")
+Pizza3Box = OptionMenu(window, clicked4, *RegularPizzas,*GourmetPizzas)
+Pizza3Box.config(font= "Comic 12")
+
+clicked5 = StringVar()
+#clicked5.set(RegularPizzas and GourmetPizzas[0])
+clicked5.set("Pizza Menu")
+Pizza4Box = OptionMenu(window, clicked5, *RegularPizzas,*GourmetPizzas)
+Pizza4Box.config(font= "Comic 12")
+
+clicked6 = StringVar()
+#clicked6.set(RegularPizzas and GourmetPizzas[0])
+clicked6.set("Pizza Menu")
+Pizza5Box = OptionMenu(window, clicked6, *RegularPizzas,*GourmetPizzas)
+Pizza5Box.config(font= "Comic 12")
+
+def One():
+    Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+    Pizza2Box.place_forget()
+    clicked3.set("Pizza Menu")
+    Pizza3Box.place_forget()
+    clicked4.set("Pizza Menu")
+    Pizza4Box.place_forget()
+    clicked5.set("Pizza Menu")
+    Pizza5Box.place_forget()
+    clicked6.set("Pizza Menu")
+def Two():
+    Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+    Pizza2Box.place( x = 215, y = 305, width = 277, height = 24)
+    Pizza3Box.place_forget()
+    clicked4.set("Pizza Menu")
+    Pizza4Box.place_forget()
+    clicked5.set("Pizza Menu")
+    Pizza5Box.place_forget()
+    clicked6.set("Pizza Menu")
+def Three():
+    Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+    Pizza2Box.place( x = 215, y = 305, width = 277, height = 24)
+    Pizza3Box.place( x = 215, y = 335, width = 277, height = 24)
+    Pizza4Box.place_forget()
+    clicked5.set("Pizza Menu")
+    Pizza5Box.place_forget()
+    clicked6.set("Pizza Menu")
+def Four():
+    Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+    Pizza2Box.place( x = 215, y = 305, width = 277, height = 24)
+    Pizza3Box.place( x = 215, y = 335, width = 277, height = 24)
+    Pizza4Box.place( x = 215, y = 365, width = 277, height = 24)
+    Pizza5Box.place_forget()
+    clicked6.set("Pizza Menu")
+def Five():
+    Pizza1Box.place( x = 215, y = 275, width = 277, height = 24)
+    Pizza2Box.place( x = 215, y = 305, width = 277, height = 24)
+    Pizza3Box.place( x = 215, y = 335, width = 277, height = 24)
+    Pizza4Box.place( x = 215, y = 365, width = 277, height = 24)
+    Pizza5Box.place( x = 215, y = 395, width = 277, height = 24)
+
+Pizza1Button = Button(window, text="1", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = One)
+Pizza1Button.place(x = 215, y = 225)
+Pizza2Button = Button(window, text="2", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Two)
+Pizza2Button.place(x = 275, y = 225)
+Pizza3Button = Button(window, text="3", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Three)
+Pizza3Button.place(x = 335, y = 225)
+Pizza4Button = Button(window, text="4", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Four)
+Pizza4Button.place(x = 395, y = 225)
+Pizza5Button = Button(window, text="5", padx = 10, pady = 5, font = "Comic 12", borderwidth = 1.5, command = Five)
+Pizza5Button.place(x = 455, y = 225)
+
+def Order():
+
+    window2 = Toplevel(window)
+    window2.geometry("800x600")
+    window2.configure(bg='#a30711')
+    window2.title("Tonys Pizza Company")
+
+    myLabeltitle = Label(window2, text = "Tonys Pizza Company", fg ='white', bg = '#a30711',font = "Comic 22")
+    myLabelsubtitle = Label(window2, text = "Ordering Service", fg ='white', bg = '#a30711', font = "Comic 22")
+    myLabelDate = Label(window2, text = "Date:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelName2 = Label(window2, text = "Customer Name:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelAddress2 = Label(window2, text = "Address:", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPhoneNum2 = Label(window2, text = "Phone Number:", fg ='white', bg = '#a30711', font = "Comic 18")
+
+    myLabelOrderPizza = Label(window2, text = "Ordered Pizzas", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPricePer = Label(window2, text = "Price Per Pizza", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelAmount = Label(window2, text = "Amount", fg ='white', bg = '#a30711', font = "Comic 18")
+    myLabelPizza11 = Label(window2, text = "Pizza 1:", fg ='white', bg = '#a30711', font = "Comic 18")#CHANGE THIS TO THE INPUTED PIZZA NAMES
+    myLabelPizza21 = Label(window2, text = "Pizza 2:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza31 = Label(window2, text = "Pizza 3:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza41 = Label(window2, text = "Pizza 4:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelPizza51 = Label(window2, text = "Pizza 5:", fg ='white', bg = '#a30711', font = "Comic 18")##
+    myLabelTotal = Label(window2, text = "Total Price (Inc Delivery):", fg ='white', bg = '#a30711', font = "Comic 18")
+    InvalidWarming.configure (text = " ")
+
+    myLabeltitle.place(x = 225, y = 3)
+    myLabelsubtitle.place(x = 250, y = 40,)
+    myLabelDate.place(x = 5, y = 100)
+    myLabelName2.place(x = 5, y =130)
+
+    myLabelOrderPizza.place(x = 5, y = 220)
+    myLabelPricePer.place(x = 250, y = 220)
+    myLabelAmount.place(x = 495, y = 220)
+    myLabelPizza11.place(x = 5, y = 250)
+    myLabelPizza21.place(x = 5, y = 280)
+    myLabelPizza31.place(x = 5, y = 310)
+    myLabelPizza41.place(x = 5, y = 340)
+    myLabelPizza51.place(x = 5, y = 370)
+    myLabelTotal.place(x = 5, y = 400)
+
+    invDate = datetime.now()
+    IDate = Label(window2,text = invDate.strftime("%d/%m/%y"), fg = 'white', bg = '#a30711', font = "Comic 18")
+    IDate.place(x = 215, y =100)
+
+    Exit2 = Button(window2, text="Exit",padx = 35, pady = 10, command = window.quit)
+    Exit2.place(x = 350, y = 440, width = 250, height = 60)
+    Exit2.config(font= "Comic 18")
+
+    Name = str(Namebox.get().strip())
+    Address = str(Addressbox.get().strip())
+    PhoneNum = str(PhoneNumbox.get().strip())
+
+    Nameout = Entry(window2, width = 24, font = "Comic 12")
+    Nameout.place(x = 215, y = 130, height =24)
+    Nameout.insert(END, Name)
+
+    Pizza1 = clicked2.get().strip()
+    Pizza2 = clicked3.get().strip()
+    Pizza3 = clicked4.get().strip()
+    Pizza4 = clicked5.get().strip()
+    Pizza5 = clicked6.get().strip()
+    #Price1 = DoubleVar(window2, value = 0) may need idk
+
+    if str(clicked.get()) == "Delivery":
+        Shipping = Delivery
+        Addout = Entry(window2, width = 24, font = "Comic 12")
+        Addout.place(x = 215, y = 160, height =24)
+        Addout.insert(END, Address)
+
+        Phoneout = Entry(window2, width = 24, font = "Comic 12")
+        Phoneout.place(x = 215, y = 190, height =24)
+        Phoneout.insert(END, PhoneNum)
+
+        myLabelAddress2.place(x =5, y = 160)
+        myLabelPhoneNum2.place(x =5, y = 190)
+    else:
+        Shipping = Pickup
+    
+    if str(clicked.get()) == "Delivery" and Address == "": 
+        InvalidWarming.configure (text = "Please make sure you entered an address and phone number")###
+        window2.withdraw()
+    if str(clicked.get()) == "Delivery" and PhoneNum == "":
+        InvalidWarming.configure (text = "Please make sure you entered an address phone number")###
+        window2.withdraw()
+
+    if Pizza1 in RegularPizzas:
+        Price1 = Regular
+    elif Pizza1 == "Pizza Menu":
+        Price1 = 0
+    else:
+        Price1 = Gourmet
+    if Pizza2 in RegularPizzas:
+        Price2 = Regular
+    elif Pizza2 == "Pizza Menu":
+        Price2 = 0
+    else:
+        Price2 = Gourmet
+    if Pizza3 in RegularPizzas:
+        Price3 = Regular
+    elif Pizza3 == "Pizza Menu":
+        Price3 = 0
+    else:
+        Price3 = Gourmet
+    if Pizza4 in RegularPizzas:
+        Price4 = Regular
+    elif Pizza4 == "Pizza Menu":
+        Price4 = 0
+    else:
+        Price4 = Gourmet
+    if Pizza5 in RegularPizzas:
+        Price5 = Regular
+    elif Pizza5 == "Pizza Menu":
+        Price5 = 0
+    else:
+        Price5 = Gourmet
+
+    if Name == "":
+        InvalidWarming.configure (text = "Please enter a name")
+        window2.withdraw()
+    
+    if Pizza1 == "Pizza Menu" and Pizza2 == "Pizza Menu" and Pizza3 == "Pizza Menu" and Pizza4 == "Pizza Menu" and Pizza5 == "Pizza Menu":
+        InvalidWarming.configure (text = "Please select at least 1 pizza")
+        window2.withdraw()
+
+    #if Two == True and clicked2 == "Pizza Menu" or clicked3 == "Pizza Menu":
+    #    InvalidWarming.configure ("No Pizza Entered")
+    #    ################
+    #    window2.withdraw
+
+    Pizza1Priceout = Entry(window2, width = 24, font = "Comic 12")
+    Pizza1Priceout.place(x = 215, y = 250, height =24)
+    Pizza1Priceout.insert(END, Price1)
+    Pizza2Priceout = Entry(window2, width = 24, font = "Comic 12")
+    Pizza2Priceout.place(x = 215, y = 280, height =24)
+    Pizza2Priceout.insert(END, Price2)
+    Pizza3Priceout = Entry(window2, width = 24, font = "Comic 12")
+    Pizza3Priceout.place(x = 215, y = 310, height =24)
+    Pizza3Priceout.insert(END, Price3)
+    Pizza4Priceout = Entry(window2, width = 24, font = "Comic 12")
+    Pizza4Priceout.place(x = 215, y = 340, height =24)
+    Pizza4Priceout.insert(END, Price4)
+    Pizza5Priceout = Entry(window2, width = 24, font = "Comic 12")
+    Pizza5Priceout.place(x = 215, y = 370, height =24)
+    Pizza5Priceout.insert(END, Price5)
+
+    Amount1 = Price1
+    Amount2 = Amount1 + Price2
+    Amount3 = Amount2 + Price3
+    Amount4 = Amount3 + Price4
+    Amount5 = Amount4 + Price5
+    Total = Amount5 + Shipping
+
+    Amount1out = Entry(window2, width = 24, font = "Comic 12")
+    Amount1out.place(x = 495, y = 250, height =24)
+    Amount1out.insert(END, Amount1)
+    Amount2out = Entry(window2, width = 24, font = "Comic 12")
+    Amount2out.place(x = 495, y = 280, height =24)
+    Amount2out.insert(END, Amount2)
+    Amount3out = Entry(window2, width = 24, font = "Comic 12")
+    Amount3out.place(x = 495, y = 310, height =24)
+    Amount3out.insert(END, Amount3)
+    Amount4out = Entry(window2, width = 24, font = "Comic 12")
+    Amount4out.place(x = 495, y = 340, height =24)
+    Amount4out.insert(END, Amount4)
+    Amount5out = Entry(window2, width = 24, font = "Comic 12")
+    Amount5out.place(x = 495, y = 370, height =24)
+    Amount5out.insert(END, Amount5)
+
+    Totout = Entry(window2, width = 24, font = "Comic 12")
+    Totout.place(x = 285, y = 404, height =24)
+    Totout.insert(END, Total)
+
+    def AnotherOrder():
+        window2.destroy()
+
+    AnotherOrderButton = Button(window2, text="Accept Another Order", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = AnotherOrder)
+    AnotherOrderButton.place(x = 15, y = 440, width = 250, height = 60)
+
+    window2.mainloop()
+
+
+
+def Clear():
+    Namebox.delete(0,END)
+    Addressbox.delete(0, END)
+    PhoneNumbox.delete(0, END)
+
+OrderButton = Button(window, text="Order", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = Order)
+OrderButton.place(x = 15, y = 440, width = 218, height = 60)
+
+Exit = Button(window, text="Exit",padx = 35, pady = 10, command = window.quit)
+Exit.place(x = 255, y = 440, width = 218, height = 60)
+Exit.config(font= "Comic 18")
+
+ClearScreenbutton = Button(window, text="Clear Screen", padx = 35, pady = 10, font = "Comic 18", borderwidth = 1.5, command = Clear)
+ClearScreenbutton.place(x = 495, y = 440, width = 218, height = 60)
+
+
+window.mainloop()
