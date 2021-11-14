@@ -11,8 +11,8 @@ window.geometry("800x600")
 window.configure(bg='#a30711')
 
 #Declaring Constants, lists and my Invalid varaible
-DELIVERY = 3
-PICKUP = 0 
+DELIVERY = 3.0
+PICKUP = 0.0 
 REGULAR = 8.50
 GOURMET = 13.50
 Invalid = ""
@@ -54,7 +54,7 @@ Namebox.place(x = 225, y = 105, height = 24)
 
 #Depending on the users shipping option this will display the address and phone number
 def selected(event):
-    if clicked.get() == "Delivery":
+    if clicked.get() == "Delivery ($3)":
         Addressbox.place(x = 225, y = 165, height = 24)
         PhoneNumbox.place(x = 225, y = 195, height = 24)
         myLabelAddress.place(x = 5, y = 160)
@@ -68,7 +68,7 @@ def selected(event):
 #Shipping method drop down menu
 clicked = StringVar()
 clicked.set("Click")
-ShippingBox = OptionMenu(window, clicked, "Delivery", "Pick Up", command = selected)
+ShippingBox = OptionMenu(window, clicked, "Delivery ($3)", "Pick Up", command = selected)
 ShippingBox.place( x = 225, y = 135, width = 305, height = 24)
 ShippingBox.config(font= ("Comic Sans MS", 12))
 
@@ -261,7 +261,7 @@ def Order():
     IDate.place(x = 215, y =95)
     
     #If statments which calculate the prices of each individual pizzas and invalid handling 
-    if Service == "Delivery":
+    if Service == "Delivery ($3)":
         Shipping = DELIVERY
         Addout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Addout.place(x = 215, y = 160, height =24)
@@ -278,10 +278,10 @@ def Order():
     else:
         InvalidWarning.configure (text = "Please choose you Delivery or Pick Up")
         window2.withdraw()
-    if Service == "Delivery" and Address == "": 
+    if Service == "Delivery ($3)" and Address == "": 
         InvalidWarning.configure (text = "Please make sure you entered an address and phone number")###
         window2.withdraw()
-    if Service == "Delivery" and PhoneNum == "":
+    if Service == "Delivery ($3)" and PhoneNum == "":
         InvalidWarning.configure (text = "Please make sure you entered an address phone number")###
         window2.withdraw()
 
@@ -340,69 +340,69 @@ def Order():
     #Outputting users information and prices depending on the users inputted information
     if Pizza1 != "Pizza Menu":
         myLabelPizza11 = Label(window2, text = Pizza1Name, fg ='white', bg = '#a30711', font = ("Comic Sans MS", 18))
-        myLabelPizza11.place(x = 5, y = 250)
+        myLabelPizza11.place(x = 0, y = 250)
 
         Pizza1Priceout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Pizza1Priceout.place(x = 215, y = 255, height =24)
-        Pizza1Priceout.insert(END,"$"+ str(Price1))
+        Pizza1Priceout.insert(END,"$"+ str(format(Price1,'.2f')))
 
         Amount1out = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Amount1out.place(x = 495, y = 255, height =24)
-        Amount1out.insert(END,"$"+ str(Amount1))
+        Amount1out.insert(END,"$"+ str(format(Amount1,'.2f')))
 
     if Pizza2 != "Pizza Menu":
         myLabelPizza21 = Label(window2, text = Pizza2Name, fg ='white', bg = '#a30711', font = ("Comic Sans MS", 18))
-        myLabelPizza21.place(x = 5, y = 280)
+        myLabelPizza21.place(x = 0, y = 280)
 
         Pizza2Priceout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Pizza2Priceout.place(x = 215, y = 285, height =24)
-        Pizza2Priceout.insert(END,"$"+ str(Price2))
+        Pizza2Priceout.insert(END,"$"+ str(format(Price2,'.2f')))
 
         Amount2out = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Amount2out.place(x = 495, y = 285, height =24)
-        Amount2out.insert(END,"$"+ str(Amount2))
+        Amount2out.insert(END,"$"+ str(format(Amount2,'.2f')))
 
     if Pizza3 != "Pizza Menu":
         myLabelPizza31 = Label(window2, text = Pizza3Name, fg ='white', bg = '#a30711', font = ("Comic Sans MS", 18))
-        myLabelPizza31.place(x = 5, y = 310)
+        myLabelPizza31.place(x = 0, y = 310)
 
         Pizza3Priceout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Pizza3Priceout.place(x = 215, y = 315, height =24)
-        Pizza3Priceout.insert(END,"$"+ str(Price3))
+        Pizza3Priceout.insert(END,"$"+ str(format(Price3,'.2f')))
 
         
         Amount3out = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Amount3out.place(x = 495, y = 315, height =24)
-        Amount3out.insert(END,"$"+ str(Amount3))
+        Amount3out.insert(END,"$"+ str(format(Amount3,'.2f')))
 
     if Pizza4 != "Pizza Menu":
         myLabelPizza41 = Label(window2, text = Pizza4Name, fg ='white', bg = '#a30711', font = ("Comic Sans MS", 18))
-        myLabelPizza41.place(x = 5, y = 340)
+        myLabelPizza41.place(x = 0, y = 340)
 
         Pizza4Priceout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Pizza4Priceout.place(x = 215, y = 345, height =24)
-        Pizza4Priceout.insert(END,"$"+ str(Price4))
+        Pizza4Priceout.insert(END,"$"+ str(format(Price4,'.2f')))
 
         Amount4out = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Amount4out.place(x = 495, y = 345, height =24)
-        Amount4out.insert(END,"$"+ str(Amount4))
+        Amount4out.insert(END,"$"+ str(format(Amount4,'.2f')))
 
     if Pizza5 != "Pizza Menu":
         myLabelPizza51 = Label(window2, text = Pizza5Name, fg ='white', bg = '#a30711', font = ("Comic Sans MS", 18))
-        myLabelPizza51.place(x = 5, y = 370)
+        myLabelPizza51.place(x = 0, y = 370)
 
         Pizza5Priceout = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Pizza5Priceout.place(x = 215, y = 375, height =24)
-        Pizza5Priceout.insert(END,"$"+ str(Price5))
+        Pizza5Priceout.insert(END,"$"+ str(format(Price5,'.2f')))
 
         Amount5out = Entry(window2, width = 24, font = ("Comic Sans MS", 12))
         Amount5out.place(x = 495, y = 375, height =24)
-        Amount5out.insert(END,"$"+ str(Amount5))
+        Amount5out.insert(END,"$"+ str(format(Amount5,'.2f')))
 
     #Creates and inserts total cost for user
     Totout = Entry(window2, width = 43, font = ("Comic Sans MS", 12))
     Totout.place(x = 305, y = 410, height =24)
-    Totout.insert(END,"$"+ str(Total))
+    Totout.insert(END,"$"+ str(format(Total,'.2f')))
 
     #Button to accept another order and clear all previous data
     def AnotherOrder():
