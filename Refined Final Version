@@ -448,6 +448,8 @@ def Clear():
     Addressbox.delete(0, END)
     PhoneNumbox.delete(0, END)
     Pizza1Box.place_forget()
+    Addressbox.place_forget()
+    PhoneNumbox.place_forget()
     clicked2.set("Pizza Menu")
     Pizza2Box.place_forget()
     clicked3.set("Pizza Menu")
